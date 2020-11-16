@@ -1,0 +1,134 @@
+* {
+    font-family: 'circe';
+}
+
+table {
+    margin: 200px auto;
+    border-spacing: 1px;
+}
+
+th {  
+    font-size: 18px;  
+    color: #fff;
+    background: #f47d32;
+    width: 150px;
+    height: 35px;
+}
+
+tr {
+    height: 20px;
+}
+
+td:first-child {
+    text-align: left;
+    padding-left: 10px;
+}
+
+td:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 50px;
+}
+
+td {
+    font-size: 16px;
+    background: gray;
+    color: #fff;
+    text-align: center;
+}
+
+td p {
+    margin: 3px;
+}
+
+.header button {
+    width: 110px;
+    height: 30px;
+    color: #fff;
+    background: #f47d32;
+    border: 0;
+    margin-bottom: 2px;
+    display: block;
+}
+
+.header button:hover {
+    cursor: pointer;
+    color: #f47d32;
+    background: #fff;
+    border: 1px solid  #f47d32;
+    transition: linear 0.5s;
+    font-weight: 700;  
+}
+
+button {
+    width: 110px;
+    height: 20px;
+    color: #fff;
+    background: transparent;
+    border: 0;
+    margin-bottom: 2px;
+    display: block;
+}
+
+button:hover {
+    cursor: pointer;
+    color: #f47d32;
+    transition: linear 0.5s;
+    font-weight: 700;  
+}
+
+.header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 170px;    
+}
+
+#mainCheckbox, label{
+    margin-right: 10px;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#popup {
+    visibility: hidden;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 300px;
+    width: 250px;
+    height: 125px;
+    background: #f47d32;
+    border-radius: 10px;
+}
+
+#nameEdit, #dateEdit {
+    display: block;
+    position: relative;
+    width: 200px;
+    height: 25px;
+    margin-top: 5px;
+}
+
+#buttonSave {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#buttonClose {
+    position: relative;
+    top: 3px;
+    left: 112px;
+    color: #fff;
+}
+
+#buttonSave:hover, #buttonClose:hover {
+    color: red;
+    cursor: pointer;
+}
