@@ -7,7 +7,6 @@ let mainTable = document.getElementById("main_table");
 
 function createPopup(id, content, taskDate) {
 	let wrapper = document.getElementById('wrapper');
-
 	let popup = document.createElement("div");
 	popup.id = "popup";
 	wrapper.append(popup);
@@ -89,7 +88,15 @@ function renderTable() {
 		document.getElementById("tr" + rows[k].id + "buttonDelete").addEventListener("click", (event) => deleteRowById(rows[k].id));
 
 		//update status
-		//document.getElementById("tr" + rows[k].id + "buttonDelete").addEventListener("click", (event) => deleteRowById(rows[k].id));
+		document.getElementById('mainCheckbox').addEventListener('change', function () {
+			if (this.checked) {
+				taskCompleted(rows[k].id)
+			}
+			else {
+				location.reload();
+				}
+		});
+		
 
 	}
 }
@@ -161,11 +168,23 @@ function deleteRowById(rowId) {
 
 function editTaskPopup(id, content, date) {
 	createPopup(id, content, date)
-
-	//alert("Редактируем поле с айди " + rowId)
 }
 
 function closePopup(popup) {
 	popup.style.visibility = 'hidden';
+}
+
+function taskCompleted(rowId) {
+	let rows = JSON.parse(localStorage.getItem("rows"));
+	for (let i = 0; i < rows.length; i++) {
+		if (document.getElementsByClassName('checkBox')[i].checked == true) {
+			document.getElementsByClassName('tr' + rows[i].id)[0].style.display = 'none';
+			rows[i].status = '<input type="checkbox" class="checkBox" checked>';
+		}
+		else {
+			rows[i].status = '<input type="checkbox" class="checkBox">';
+		}
+	}
+	localStorage.setItem("rows", JSON.stringify(rows));
 }
 
