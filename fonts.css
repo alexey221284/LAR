@@ -1,0 +1,60 @@
+@font-face {
+	font-family: 'circe';
+	src: url('fonts/circe-regular.eot');
+	src: local('Circe'), local('Circe-Regular'),
+		url('fonts/circe-regular.eot?#iefix') format('embedded-opentype'),
+		url('fonts/circe-regular.woff') format('woff'),
+		url('fonts/circe-regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'circe';
+	src: url('fonts/circe-extralight.eot');
+	src: local('circe Extralight'), local('circe-Extralight'),
+		url('fonts/circe-extralight.eot?#iefix') format('embedded-opentype'),
+		url('fonts/circe-Extralight.woff') format('woff'),
+		url('fonts/circe-Extralight.ttf') format('truetype');
+	font-weight: 200;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'circe';
+	src: url('fonts/circe-Thin.eot');
+	src: local('circe Thin'), local('circe-Thin'),
+		url('fonts/circe-Thin.eot?#iefix') format('embedded-opentype'),
+		url('fonts/circe-Thin.woff') format('woff'),
+		url('fonts/circe-Thin.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'circe';
+	src: url('fonts/circe-light.eot');
+	src: local('circe light'), local('circe-light'),
+		url('fonts/circe-light.eot?#iefix') format('embedded-opentype'),
+		url('fonts/circe-light.woff') format('woff'),
+		url('fonts/circe-light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'circe';
+	src: url('fonts/circe-bold.eot');
+	src: local('circe bold'), local('circe-bold'),
+		url('fonts/circe-bold.eot?#iefix') format('embedded-opentype'),
+		url('fonts/circe-bold.woff') format('woff'),
+		url('fonts/circe-bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'circe';
+	src: url('fonts/circe-Extrabold.eot');
+	src: local('circe Extrabold'), local('circe-Extrabold'),
+		url('fonts/circe-Extrabold.eot?#iefix') format('embedded-opentype'),
+		url('fonts/circe-Extrabold.woff') format('woff'),
+		url('fonts/circe-Extrabold.ttf') format('truetype');
+	font-weight: 800;
+	font-style: normal;
+}
