@@ -4,6 +4,8 @@ const NEW_TASK_NAME = "новая задача ";
 let mainTable = document.getElementById("main_table");
 let mainCheckBox = document.getElementById('mainCheckbox');
 
+initStorage();
+
 mainCheckBox.addEventListener('change', function () {
 	renderTable(this.checked);
 });
@@ -36,6 +38,14 @@ function createPopup(id, content, taskDate) {
 	//update
 	buttonSave.addEventListener("click", event => updateItemInStorage(id, nameEdit.value, dateEdit.value, popup));
 	popup.style.visibility = 'visible';
+}
+
+function initStorage() {
+	let rowsVal = localStorage.getItem("rows");
+	if (rowsVal == null) {
+		let rows = [];
+		localStorage.setItem("rows", JSON.stringify(rows));
+	}
 }
 
 function renderTable(hideCompleted) {
