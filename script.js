@@ -1,5 +1,5 @@
 let addNewTask = document.getElementById("addNewTask");
-addNewTask.addEventListener("click", (event) => addRow());
+addNewTask.addEventListener("click", (event) => addNewTaskWithPopup());
 const NEW_TASK_NAME = "новая задача ";
 let mainTable = document.getElementById("main_table");
 let mainCheckBox = document.getElementById('mainCheckbox');
@@ -117,7 +117,7 @@ function generateStatusHtml(row) {
 }
 
 function clearAndRecreateHeader(table) {
-	table.innerHTML = '<tr><th>Id</th><th>Наименование</th><th>Дата</th><th>Статус</th><th>Действия</th></tr>';
+	table.innerHTML = '<tr><th>Номер</th><th>Наименование</th><th>Дата</th><th>Статус</th><th>Действия</th></tr>';
 }
 
 renderTable(mainCheckBox.checked);
@@ -152,7 +152,7 @@ function updateItemInStorage(id, content, taskDate, popup) {
 	renderTable(mainCheckBox.checked);
 }
 
-function addRow() {
+function addNewRow() {
 	let rowId = getLastId() + 1;
 	let newRow = {
 		id: rowId,
@@ -175,6 +175,23 @@ function deleteRowById(rowId) {
 	}
 	localStorage.setItem("rows", JSON.stringify(rows));
 	renderTable(mainCheckBox.checked);
+}
+
+function addNewTaskWithPopup() {
+		let id = getLastId() + 1;
+		let date = new Date().toISOString().slice(0, 10);
+		createPopup(id, NEW_TASK_NAME, date);
+
+		let newRow = {
+			id: id,
+			name: '',
+			date: '',
+			status: false,
+			};
+
+	let rows = JSON.parse(localStorage.getItem("rows"));
+	rows.push(newRow);
+	localStorage.setItem("rows", JSON.stringify(rows));
 }
 
 function editTaskPopup(id, content, date) {
