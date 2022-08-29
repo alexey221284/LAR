@@ -150,6 +150,8 @@ function updateItemInStorage(id, content, taskDate, popup) {
 	localStorage.setItem("rows", JSON.stringify(rows));
 	popup.style.visibility = 'hidden';
 	renderTable(mainCheckBox.checked);
+
+	mainTable.style.opacity = '1';
 }
 
 function deleteRowById(rowId) {
