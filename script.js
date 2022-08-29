@@ -152,23 +152,10 @@ function updateItemInStorage(id, content, taskDate, popup) {
 	renderTable(mainCheckBox.checked);
 }
 
-function addNewRow() {
-	let rowId = getLastId() + 1;
-	let newRow = {
-		id: rowId,
-		name: NEW_TASK_NAME,
-		date: new Date().toISOString().slice(0, 10),
-		status: false,
-		//	'<input type="checkbox" class="checkBox" id="checkbox' + rowId + '">'
-	};
-	addItemToStorage(newRow);
-	return rowId;
-}
-
 function deleteRowById(rowId) {
 	let rows = JSON.parse(localStorage.getItem("rows"));
 	for (let i = 0; i < rows.length; i++) {
-		if (rows[i].id == rowId) {
+		if (rows[i].id === rowId) {
 			rows.splice(i, 1);
 			break;
 		}
@@ -192,6 +179,8 @@ function addNewTaskWithPopup() {
 	let rows = JSON.parse(localStorage.getItem("rows"));
 	rows.push(newRow);
 	localStorage.setItem("rows", JSON.stringify(rows));
+
+	mainTable.style.opacity = '0.5';
 }
 
 function editTaskPopup(id, content, date) {
@@ -200,6 +189,8 @@ function editTaskPopup(id, content, date) {
 
 function closePopup(popup) {
 	popup.style.visibility = 'hidden';
+
+	mainTable.style.opacity = '1';
 }
 
 function taskCompleted(id, isChecked) {
