@@ -15,6 +15,10 @@ th {
     height: 35px;
 }
 
+th:nth-child(2) {
+    width: 400px;
+}
+
 tr {
     height: 20px;
 }
