@@ -100,7 +100,6 @@ function renderTable(hideCompleted) {
 
 		//update status
 		document.getElementById('checkbox' + rows[k].id).addEventListener('change', function () {
-			// taskCompleted(k, this.checked);
 			taskCompleted(rows[k].id, this.checked);
 		});
 	}
@@ -130,14 +129,6 @@ function getLastId() {
 	return rows[rows.length - 1].id;
 }
 
-function addItemToStorage(row) {
-	let rows = JSON.parse(localStorage.getItem("rows"));
-	rows.push(row);
-	localStorage.setItem("rows", JSON.stringify(rows));
-	renderTable(mainCheckBox.checked);
-	return rows;
-}
-
 function updateItemInStorage(id, content, taskDate, popup) {
 	let rows = JSON.parse(localStorage.getItem("rows"));
 	for (let i = 0; i < rows.length; i++) {
@@ -150,7 +141,6 @@ function updateItemInStorage(id, content, taskDate, popup) {
 	localStorage.setItem("rows", JSON.stringify(rows));
 	popup.style.visibility = 'hidden';
 	renderTable(mainCheckBox.checked);
-
 	mainTable.style.opacity = '1';
 }
 
@@ -181,7 +171,6 @@ function addNewTaskWithPopup() {
 	let rows = JSON.parse(localStorage.getItem("rows"));
 	rows.push(newRow);
 	localStorage.setItem("rows", JSON.stringify(rows));
-
 	mainTable.style.opacity = '0.5';
 }
 
@@ -191,14 +180,13 @@ function editTaskPopup(id, content, date) {
 
 function closePopup(popup) {
 	popup.style.visibility = 'hidden';
-
 	mainTable.style.opacity = '1';
 }
 
 function taskCompleted(id, isChecked) {
 	let rows = JSON.parse(localStorage.getItem("rows"));
 	for (let i = 0; i < rows.length; i++) {
-		if (rows[i].id == id) {
+		if (rows[i].id === id) {
 			if (isChecked) {
 				rows[i].status = true;
 			} else {
